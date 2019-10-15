@@ -1,0 +1,26 @@
+﻿@model MVCexample.Models.Movie
+@{
+    ViewBag.Title = "MovieDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(Model!=null)
+{
+    <div>
+        <h2>@Model.MovieName</h2>
+        <ul>
+            @*<li>@Model.Genre</li>*@
+            <li>@Model.MovieName</li>
+
+            <li>@Model.ReleaseDate.ToShortDateString()</li>
+            <li>@Model.DateAdded.ToShortDateString()</li>
+            <li>@Model.AvailableStock</li>
+            <li>@Model.GenreId</li>
+        </ul>
+    </div>
+}
+else
+{
+    <text>No Record Found</text>
+}
+

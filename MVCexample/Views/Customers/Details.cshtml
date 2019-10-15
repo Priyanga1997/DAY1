@@ -1,0 +1,27 @@
+﻿@model MVCexample.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+<div>
+    <h2>@Model.CustomerName</h2>
+    <ul>
+        <li>CustomerName : @Model.CustomerName</li>
+        <li>City : @Model.City</li>
+        <li>Date of Birth : @Model.BirthDate.Value.ToShortDateString()</li>
+        <li>Gender : @Model.Gender</li>
+        <li>MembershipTypeId : @Model.MembershipTypeId</li>
+
+
+    </ul>
+</div>
+}
+<div>
+    @Html.ActionLink("Back", "Index", "Customers")
+</div>
+else
+{
+    <text>No Record Found</text>
+}

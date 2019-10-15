@@ -1,0 +1,34 @@
+﻿@model List<MVCexample.Models.Customer>
+@{
+    ViewBag.Title = "DisplayCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+<div class="accordion">
+    <h2>Display Customer</h2>
+    <div>
+        <h3>@Html.ActionLink("Create New", "Create", "Customers")</h3>
+    </div>
+    <table class="table table-bordered table-hover table-striped">
+        <tr class="thead-dark">
+          
+            <th>Name</th>
+            <th>Membership Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>@item.ID</td>*@
+                @*<td>@item.CustomerName</td>*@
+                <td>@Html.ActionLink(item.CustomerName, "Details", "Customers", new { id = item.ID }, null)</td>
+                <td>@item.MembershipType.Type</td>
+                <td>@Html.ActionLink("Edit", "EditCustomer", "Customers", new { id = item.ID })</td>
+                <td>@Html.ActionLink("Delete","DeleteCustomer","Customers",new { id = item.ID })</td>
+
+            </tr>
+        }
+    </table>
+</div>
+}
